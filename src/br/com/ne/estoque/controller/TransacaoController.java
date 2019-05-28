@@ -27,13 +27,13 @@ public class TransacaoController {
 		transacao.setTipo(tipo);
 		transacao.setDataTransacao(DataSql);
 		transacao.setHoraTransacao(horaSql);
-		transacao.setValorUnitario(IniciarAplicativoNEEstoque.produto.getValorUnitario());
-		transacao.setValorVenda(IniciarAplicativoNEEstoque.produto.getValorVenda());
+		transacao.setValorUnitario(IniciarAplicativoEstoque.produto.getValorUnitario());
+		transacao.setValorVenda(IniciarAplicativoEstoque.produto.getValorVenda());
 		transacao.setEstoqueAnterior(estoqueAnterior);
 		transacao.setAjuste(ajuste);
-		transacao.setEstoqueAtual(IniciarAplicativoNEEstoque.produto.getEstoqueAtual());
-		transacao.setProduto(IniciarAplicativoNEEstoque.produto);
-		transacao.setOperador(IniciarAplicativoNEEstoque.operador);
+		transacao.setEstoqueAtual(IniciarAplicativoEstoque.produto.getEstoqueAtual());
+		transacao.setProduto(IniciarAplicativoEstoque.produto);
+		transacao.setOperador(IniciarAplicativoEstoque.operador);
 	
 		sucesso = transacaoDAO.novaTransacao(transacao);
 		

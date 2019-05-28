@@ -19,7 +19,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import br.com.ne.estoque.controller.IniciarAplicativoNEEstoque;
+import br.com.ne.estoque.controller.IniciarAplicativoEstoque;
 import br.com.ne.estoque.controller.Operador;
 import br.com.ne.estoque.controller.OperadorController;
 
@@ -493,7 +493,7 @@ public class CadastroUsuarioView extends JDialog {
 							cancelButton.setActionCommand("Cancel");
 						}
 						
-						JLabel lblLogado = new JLabel("LOGADO: " + IniciarAplicativoNEEstoque.operador.getNome().toUpperCase());
+						JLabel lblLogado = new JLabel("LOGADO: " + IniciarAplicativoEstoque.operador.getNome().toUpperCase());
 						lblLogado.setBounds(37, 243, 165, 17);
 						contentPanel.add(lblLogado);
 		tfNome.setVisible(false);

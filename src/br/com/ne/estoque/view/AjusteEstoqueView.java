@@ -25,7 +25,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
-import br.com.ne.estoque.controller.IniciarAplicativoNEEstoque;
+import br.com.ne.estoque.controller.IniciarAplicativoEstoque;
 import br.com.ne.estoque.controller.ProdutoController;
 import br.com.ne.estoque.controller.TransacaoController;
 import uteis.TamanhoMaxTextField;
@@ -95,26 +95,26 @@ public class AjusteEstoqueView extends JDialog {
 
 					} else {
 
-						int soma = IniciarAplicativoNEEstoque.produto.getEstoqueAtual()
+						int soma = IniciarAplicativoEstoque.produto.getEstoqueAtual()
 								+ Integer.parseInt(tfQuantidade.getText());
 
 						int resposta = JOptionPane.showConfirmDialog(null, "Com a entrada de " + tfQuantidade.getText()
-								+ " " + IniciarAplicativoNEEstoque.produto.getUnidadeMedida()
-								+ " o saldo atual do produto " + IniciarAplicativoNEEstoque.produto.getNomeDescricao()
-								+ " foi para " + soma + " " + IniciarAplicativoNEEstoque.produto.getUnidadeMedida()
+								+ " " + IniciarAplicativoEstoque.produto.getUnidadeMedida()
+								+ " o saldo atual do produto " + IniciarAplicativoEstoque.produto.getNomeDescricao()
+								+ " foi para " + soma + " " + IniciarAplicativoEstoque.produto.getUnidadeMedida()
 								+ ". Deseja confirmar?", "Entrada no Estoque", JOptionPane.OK_OPTION);
 
 						if (resposta == JOptionPane.OK_OPTION) {
 							
-							int estoqueAnterior = IniciarAplicativoNEEstoque.produto.getEstoqueAtual();
+							int estoqueAnterior = IniciarAplicativoEstoque.produto.getEstoqueAtual();
 							
 							boolean sucesso = false;
 
 							ProdutoController produtoController = new ProdutoController();
 
-							IniciarAplicativoNEEstoque.produto.setEstoqueAtual(soma);
+							IniciarAplicativoEstoque.produto.setEstoqueAtual(soma);
 
-							sucesso = produtoController.entrada(IniciarAplicativoNEEstoque.produto);
+							sucesso = produtoController.entrada(IniciarAplicativoEstoque.produto);
 
 							if (sucesso) {
 
@@ -148,7 +148,7 @@ public class AjusteEstoqueView extends JDialog {
 
 					} else {
 
-						if (IniciarAplicativoNEEstoque.produto.getEstoqueAtual() < Integer
+						if (IniciarAplicativoEstoque.produto.getEstoqueAtual() < Integer
 								.parseInt(tfQuantidade.getText())) {
 
 							JOptionPane.showMessageDialog(null, "O saldo do produto é menor do que o solicitado!");
@@ -157,29 +157,29 @@ public class AjusteEstoqueView extends JDialog {
 
 						} else {
 
-							int subtracao = IniciarAplicativoNEEstoque.produto.getEstoqueAtual()
+							int subtracao = IniciarAplicativoEstoque.produto.getEstoqueAtual()
 									- Integer.parseInt(tfQuantidade.getText());
 
 							int resposta = JOptionPane.showConfirmDialog(null,
 									"Com a saída de " + tfQuantidade.getText() + " "
-											+ IniciarAplicativoNEEstoque.produto.getUnidadeMedida()
+											+ IniciarAplicativoEstoque.produto.getUnidadeMedida()
 											+ " o saldo atual do produto "
-											+ IniciarAplicativoNEEstoque.produto.getNomeDescricao() + " foi para "
-											+ subtracao + " " + IniciarAplicativoNEEstoque.produto.getUnidadeMedida()
+											+ IniciarAplicativoEstoque.produto.getNomeDescricao() + " foi para "
+											+ subtracao + " " + IniciarAplicativoEstoque.produto.getUnidadeMedida()
 											+ ". Deseja confirmar?",
 									"Saída de Estoque", JOptionPane.OK_OPTION);
 
 							if (resposta == JOptionPane.OK_OPTION) {
 								
-								int estoqueAnterior = IniciarAplicativoNEEstoque.produto.getEstoqueAtual();
+								int estoqueAnterior = IniciarAplicativoEstoque.produto.getEstoqueAtual();
 								
 								boolean sucesso = false;
 
 								ProdutoController produtoController = new ProdutoController();
 
-								IniciarAplicativoNEEstoque.produto.setEstoqueAtual(subtracao);
+								IniciarAplicativoEstoque.produto.setEstoqueAtual(subtracao);
 
-								sucesso = produtoController.saida(IniciarAplicativoNEEstoque.produto);
+								sucesso = produtoController.saida(IniciarAplicativoEstoque.produto);
 
 								if (sucesso) {
 
@@ -213,7 +213,7 @@ public class AjusteEstoqueView extends JDialog {
 
 					} else {
 
-						int soma = IniciarAplicativoNEEstoque.produto.getEstoqueAtual()
+						int soma = IniciarAplicativoEstoque.produto.getEstoqueAtual()
 								+ Integer.parseInt(tfQuantidade.getText());
 
 						if (tpDescrevaOQueHouve.getText().equals("")) {
@@ -226,24 +226,24 @@ public class AjusteEstoqueView extends JDialog {
 
 							int resposta = JOptionPane.showConfirmDialog(null,
 									"Com a devolução de " + tfQuantidade.getText() + " "
-											+ IniciarAplicativoNEEstoque.produto.getUnidadeMedida()
+											+ IniciarAplicativoEstoque.produto.getUnidadeMedida()
 											+ " o saldo atual do produto "
-											+ IniciarAplicativoNEEstoque.produto.getNomeDescricao() + " foi para "
-											+ soma + " " + IniciarAplicativoNEEstoque.produto.getUnidadeMedida()
+											+ IniciarAplicativoEstoque.produto.getNomeDescricao() + " foi para "
+											+ soma + " " + IniciarAplicativoEstoque.produto.getUnidadeMedida()
 											+ ". Deseja confirmar?",
 									"Devolução de Produto", JOptionPane.OK_OPTION);
 
 							if (resposta == JOptionPane.OK_OPTION) {
 								
-								int estoqueAnterior = IniciarAplicativoNEEstoque.produto.getEstoqueAtual();
+								int estoqueAnterior = IniciarAplicativoEstoque.produto.getEstoqueAtual();
 								
 								boolean sucesso = false;
 
 								ProdutoController produtoController = new ProdutoController();
 
-								IniciarAplicativoNEEstoque.produto.setEstoqueAtual(soma);
+								IniciarAplicativoEstoque.produto.setEstoqueAtual(soma);
 
-								sucesso = produtoController.entrada(IniciarAplicativoNEEstoque.produto);
+								sucesso = produtoController.entrada(IniciarAplicativoEstoque.produto);
 
 								if (sucesso) {
 																	
@@ -277,10 +277,10 @@ public class AjusteEstoqueView extends JDialog {
 
 					} else {
 
-						int subtracao = IniciarAplicativoNEEstoque.produto.getEstoqueAtual()
+						int subtracao = IniciarAplicativoEstoque.produto.getEstoqueAtual()
 								- Integer.parseInt(tfQuantidade.getText());
 
-						if (IniciarAplicativoNEEstoque.produto.getEstoqueAtual() < Integer
+						if (IniciarAplicativoEstoque.produto.getEstoqueAtual() < Integer
 								.parseInt(tfQuantidade.getText())) {
 
 							JOptionPane.showMessageDialog(null, "O saldo do produto é menor do que o solicitado!");
@@ -299,25 +299,25 @@ public class AjusteEstoqueView extends JDialog {
 
 								int resposta = JOptionPane.showConfirmDialog(null,
 										"Com a(s) perda(s) de " + tfQuantidade.getText() + " "
-												+ IniciarAplicativoNEEstoque.produto.getUnidadeMedida()
+												+ IniciarAplicativoEstoque.produto.getUnidadeMedida()
 												+ " o saldo atual do produto "
-												+ IniciarAplicativoNEEstoque.produto.getNomeDescricao() + " foi para "
+												+ IniciarAplicativoEstoque.produto.getNomeDescricao() + " foi para "
 												+ subtracao + " "
-												+ IniciarAplicativoNEEstoque.produto.getUnidadeMedida()
+												+ IniciarAplicativoEstoque.produto.getUnidadeMedida()
 												+ ". Deseja confirmar?",
 										"Perdas de Produto", JOptionPane.OK_OPTION);
 
 								if (resposta == JOptionPane.OK_OPTION) {
 									
-									int estoqueAnterior = IniciarAplicativoNEEstoque.produto.getEstoqueAtual();
+									int estoqueAnterior = IniciarAplicativoEstoque.produto.getEstoqueAtual();
 									
 									boolean sucesso = false;
 
 									ProdutoController produtoController = new ProdutoController();
 
-									IniciarAplicativoNEEstoque.produto.setEstoqueAtual(subtracao);
+									IniciarAplicativoEstoque.produto.setEstoqueAtual(subtracao);
 
-									sucesso = produtoController.saida(IniciarAplicativoNEEstoque.produto);
+									sucesso = produtoController.saida(IniciarAplicativoEstoque.produto);
 
 									if (sucesso) {
 									

@@ -36,7 +36,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-import br.com.ne.estoque.controller.IniciarAplicativoNEEstoque;
+import br.com.ne.estoque.controller.IniciarAplicativoEstoque;
 import br.com.ne.estoque.controller.Produto;
 import br.com.ne.estoque.controller.ProdutoController;
 import br.com.ne.estoque.controller.TransacaoController;
@@ -341,7 +341,7 @@ public class CadastroProdutoView extends JDialog {
 		lblProdutoImagem.setBounds(476, 403, 447, 147);
 		getContentPane().add(lblProdutoImagem);
 
-		JLabel lblLogado = new JLabel("LOGADO: " + IniciarAplicativoNEEstoque.operador.getNome().toUpperCase());
+		JLabel lblLogado = new JLabel("LOGADO: " + IniciarAplicativoEstoque.operador.getNome().toUpperCase());
 		lblLogado.setBounds(20, 561, 435, 23);
 		getContentPane().add(lblLogado);
 
@@ -444,7 +444,7 @@ public class CadastroProdutoView extends JDialog {
 						e.printStackTrace();
 					}
 
-					IniciarAplicativoNEEstoque.produto.setFoto(bytes);
+					IniciarAplicativoEstoque.produto.setFoto(bytes);
 
 				}
 
@@ -758,7 +758,7 @@ public class CadastroProdutoView extends JDialog {
 								e.printStackTrace();
 							}
 
-							IniciarAplicativoNEEstoque.produto.setFoto(bytes);
+							IniciarAplicativoEstoque.produto.setFoto(bytes);
 
 							arquivo = escolherArquivo.getSelectedFile();
 							escolherArquivo.setSelectedFile(arquivo);
@@ -865,16 +865,16 @@ public class CadastroProdutoView extends JDialog {
 		produto.setEstoqueMinimo(Integer.valueOf(tfLimiteEstoque.getText()));
 		produto.setObservacoes(tpObservacoes.getText().toUpperCase());
 
-		produto.setFoto(IniciarAplicativoNEEstoque.produto.getFoto());
+		produto.setFoto(IniciarAplicativoEstoque.produto.getFoto());
 
-		IniciarAplicativoNEEstoque.produto = produto;
+		IniciarAplicativoEstoque.produto = produto;
 
 		ProdutoController produtoController = new ProdutoController();
-		sucesso = produtoController.cadastrarProduto(IniciarAplicativoNEEstoque.produto);
+		sucesso = produtoController.cadastrarProduto(IniciarAplicativoEstoque.produto);
 
 		id_produto = produtoController.buscarId_produto();
 
-		IniciarAplicativoNEEstoque.produto.setId_produto(id_produto);
+		IniciarAplicativoEstoque.produto.setId_produto(id_produto);
 
 		if (sucesso == true) {
 
@@ -962,32 +962,32 @@ public class CadastroProdutoView extends JDialog {
 			double precoCusto = Double.valueOf(pC.replace(",", "."));
 			double precoVenda = Double.valueOf(pV.replace(",", "."));
 
-			ProdutoView.produtoTemp.setId_produto(IniciarAplicativoNEEstoque.produto.getId_produto());
+			ProdutoView.produtoTemp.setId_produto(IniciarAplicativoEstoque.produto.getId_produto());
 			ProdutoView.produtoTemp.setCategoria(String.valueOf(cbCategoria.getSelectedItem()).toUpperCase());
 			ProdutoView.produtoTemp.setCodigo(tfCodigo.getText().toUpperCase());
 			ProdutoView.produtoTemp.setNomeDescricao(tfDescricao.getText().toUpperCase());
-			ProdutoView.produtoTemp.setEstoqueAtual(IniciarAplicativoNEEstoque.produto.getEstoqueAtual());
+			ProdutoView.produtoTemp.setEstoqueAtual(IniciarAplicativoEstoque.produto.getEstoqueAtual());
 			ProdutoView.produtoTemp.setValorUnitario(precoCusto);
 			ProdutoView.produtoTemp.setValorVenda(precoVenda);
 			ProdutoView.produtoTemp.setUnidadeMedida(String.valueOf(cbUnidadeMedida.getSelectedItem()).toUpperCase());
 			ProdutoView.produtoTemp.setEstoqueMinimo(Integer.valueOf(tfLimiteEstoque.getText()));
 			ProdutoView.produtoTemp.setObservacoes(tpObservacoes.getText().toUpperCase());
 		
-			if (IniciarAplicativoNEEstoque.produto.equals(ProdutoView.produtoTemp)) {
+			if (IniciarAplicativoEstoque.produto.equals(ProdutoView.produtoTemp)) {
 
 				JOptionPane.showMessageDialog(null, "Nenhum dado do produto foi editado!");
 
 			} else {
 
-				int estoqueAnterior = IniciarAplicativoNEEstoque.produto.getEstoqueAtual();
+				int estoqueAnterior = IniciarAplicativoEstoque.produto.getEstoqueAtual();
 
-				ProdutoView.produtoTemp.setFoto(IniciarAplicativoNEEstoque.produto.getFoto());
+				ProdutoView.produtoTemp.setFoto(IniciarAplicativoEstoque.produto.getFoto());
 
-				IniciarAplicativoNEEstoque.produto = ProdutoView.produtoTemp;
+				IniciarAplicativoEstoque.produto = ProdutoView.produtoTemp;
 
 				ProdutoController produtoController = new ProdutoController();
 
-				sucesso = produtoController.editarProduto(IniciarAplicativoNEEstoque.produto);
+				sucesso = produtoController.editarProduto(IniciarAplicativoEstoque.produto);
 
 				if (sucesso == true) {
 

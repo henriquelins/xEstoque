@@ -27,7 +27,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
-import br.com.ne.estoque.controller.IniciarAplicativoNEEstoque;
+import br.com.ne.estoque.controller.IniciarAplicativoEstoque;
 import br.com.ne.estoque.controller.Operador;
 import br.com.ne.estoque.controller.OperadorController;
 import uteis.PesquisarComboBox;
@@ -150,10 +150,10 @@ public class TelaLogin extends JFrame {
 
 					OperadorController operadorRN = new OperadorController();
 
-					IniciarAplicativoNEEstoque.operador = operadorRN.login(String.valueOf(cbLogin.getSelectedItem()).toUpperCase(),
+					IniciarAplicativoEstoque.operador = operadorRN.login(String.valueOf(cbLogin.getSelectedItem()).toUpperCase(),
 							String.valueOf(pfSenha.getPassword()));
 
-					if (IniciarAplicativoNEEstoque.operador.getLogin() != null) {
+					if (IniciarAplicativoEstoque.operador.getLogin() != null) {
 						
 						dispose();
 						

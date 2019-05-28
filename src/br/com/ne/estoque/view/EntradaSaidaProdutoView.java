@@ -20,7 +20,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
-import br.com.ne.estoque.controller.IniciarAplicativoNEEstoque;
+import br.com.ne.estoque.controller.IniciarAplicativoEstoque;
 
 public class EntradaSaidaProdutoView extends JDialog {
 
@@ -161,23 +161,23 @@ public class EntradaSaidaProdutoView extends JDialog {
 							ajusteEstoqueView.setLocationRelativeTo(null);
 
 							ajusteEstoqueView.getLblNomeDescricao()
-									.setText(IniciarAplicativoNEEstoque.produto.getNomeDescricao());
+									.setText(IniciarAplicativoEstoque.produto.getNomeDescricao());
 							ajusteEstoqueView.getLblEstoqueAtual()
-									.setText(String.valueOf(IniciarAplicativoNEEstoque.produto.getEstoqueAtual()) + " "
-											+ IniciarAplicativoNEEstoque.produto.getUnidadeMedida());
+									.setText(String.valueOf(IniciarAplicativoEstoque.produto.getEstoqueAtual()) + " "
+											+ IniciarAplicativoEstoque.produto.getUnidadeMedida());
 
 							ajusteEstoqueView.setVisible(true);
 
-							tfEstoqueAtual.setText(String.valueOf(IniciarAplicativoNEEstoque.produto.getEstoqueAtual()) + " "
-									+ IniciarAplicativoNEEstoque.produto.getUnidadeMedida());
+							tfEstoqueAtual.setText(String.valueOf(IniciarAplicativoEstoque.produto.getEstoqueAtual()) + " "
+									+ IniciarAplicativoEstoque.produto.getUnidadeMedida());
 							
-							if (IniciarAplicativoNEEstoque.produto.getEstoqueAtual() <= IniciarAplicativoNEEstoque.produto.getEstoqueMinimo()) {
+							if (IniciarAplicativoEstoque.produto.getEstoqueAtual() <= IniciarAplicativoEstoque.produto.getEstoqueMinimo()) {
 
 								tfSituacaoAtual.setText("ESTOQUE BAIXO");
 								tfSituacaoAtual.setForeground(Color.RED);
 
-							} else if (IniciarAplicativoNEEstoque.produto.getEstoqueAtual() > IniciarAplicativoNEEstoque.produto.getEstoqueMinimo()
-									&& IniciarAplicativoNEEstoque.produto.getEstoqueAtual() < 2 * IniciarAplicativoNEEstoque.produto.getEstoqueMinimo()) {
+							} else if (IniciarAplicativoEstoque.produto.getEstoqueAtual() > IniciarAplicativoEstoque.produto.getEstoqueMinimo()
+									&& IniciarAplicativoEstoque.produto.getEstoqueAtual() < 2 * IniciarAplicativoEstoque.produto.getEstoqueMinimo()) {
 
 								tfSituacaoAtual.setText("ATENÇÃO NO ESTOQUE");
 								tfSituacaoAtual.setForeground(Color.ORANGE);
@@ -197,7 +197,7 @@ public class EntradaSaidaProdutoView extends JDialog {
 					}
 				});
 		
-		JLabel lblLogado = new JLabel("LOGADO: " + IniciarAplicativoNEEstoque.operador.getNome().toUpperCase());
+		JLabel lblLogado = new JLabel("LOGADO: " + IniciarAplicativoEstoque.operador.getNome().toUpperCase());
 		lblLogado.setBounds(22, 567, 423, 23);
 		contentPanel.add(lblLogado);
 		

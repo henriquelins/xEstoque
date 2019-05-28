@@ -41,7 +41,7 @@ import javax.swing.event.AncestorEvent;
 import javax.swing.event.AncestorListener;
 import javax.swing.table.DefaultTableModel;
 
-import br.com.ne.estoque.controller.IniciarAplicativoNEEstoque;
+import br.com.ne.estoque.controller.IniciarAplicativoEstoque;
 import br.com.ne.estoque.controller.Produto;
 import br.com.ne.estoque.controller.ProdutoController;
 import br.com.ne.estoque.controller.Transacao;
@@ -245,22 +245,22 @@ public class ProdutoView extends JFrame {
 
 						if (resposta == JOptionPane.OK_OPTION) {
 
-							int estoqueAnterior = IniciarAplicativoNEEstoque.produto.getEstoqueAtual();
+							int estoqueAnterior = IniciarAplicativoEstoque.produto.getEstoqueAtual();
 
 							boolean sucesso = false;
 
 							int id_produto = listaProduto.get(posicao).getId_produto();
 
 							ProdutoController produtoController = new ProdutoController();
-							IniciarAplicativoNEEstoque.produto = produtoController.buscarProduto(id_produto);
+							IniciarAplicativoEstoque.produto = produtoController.buscarProduto(id_produto);
 
-							IniciarAplicativoNEEstoque.produto.setCodigo("EXCLUÍDO");
-							IniciarAplicativoNEEstoque.produto.setEstoqueAtual(0);
-							IniciarAplicativoNEEstoque.produto.setEstoqueMinimo(0);
-							IniciarAplicativoNEEstoque.produto.setValorUnitario(0);
-							IniciarAplicativoNEEstoque.produto.setValorVenda(0);
+							IniciarAplicativoEstoque.produto.setCodigo("EXCLUÍDO");
+							IniciarAplicativoEstoque.produto.setEstoqueAtual(0);
+							IniciarAplicativoEstoque.produto.setEstoqueMinimo(0);
+							IniciarAplicativoEstoque.produto.setValorUnitario(0);
+							IniciarAplicativoEstoque.produto.setValorVenda(0);
 
-							sucesso = produtoController.editarProduto(IniciarAplicativoNEEstoque.produto);
+							sucesso = produtoController.editarProduto(IniciarAplicativoEstoque.produto);
 
 							if (sucesso == true) {
 
@@ -339,7 +339,7 @@ public class ProdutoView extends JFrame {
 							int id_produto = listaProduto.get(posicao).getId_produto();
 
 							ProdutoController produtoController = new ProdutoController();
-							IniciarAplicativoNEEstoque.produto = produtoController.buscarProduto(id_produto);
+							IniciarAplicativoEstoque.produto = produtoController.buscarProduto(id_produto);
 
 							CadastroProdutoView cadastroProduto = new CadastroProdutoView();
 
@@ -347,27 +347,27 @@ public class ProdutoView extends JFrame {
 							cadastroProduto.getTfEstoqueAtual().setVisible(false);
 
 							cadastroProduto.getCbCategoria()
-									.setSelectedItem(IniciarAplicativoNEEstoque.produto.getCategoria());
+									.setSelectedItem(IniciarAplicativoEstoque.produto.getCategoria());
 							cadastroProduto.getTfCodigo()
-									.setText(IniciarAplicativoNEEstoque.produto.getCodigo().toUpperCase());
+									.setText(IniciarAplicativoEstoque.produto.getCodigo().toUpperCase());
 							cadastroProduto.getTfDescricao()
-									.setText(IniciarAplicativoNEEstoque.produto.getNomeDescricao());
+									.setText(IniciarAplicativoEstoque.produto.getNomeDescricao());
 							cadastroProduto.getTfPrecoCusto().setText(
-									String.valueOf(IniciarAplicativoNEEstoque.produto.getValorUnitario()) + "0");
+									String.valueOf(IniciarAplicativoEstoque.produto.getValorUnitario()) + "0");
 							cadastroProduto.getTfPrecoVenda()
-									.setText(String.valueOf(IniciarAplicativoNEEstoque.produto.getValorVenda()) + "0");
+									.setText(String.valueOf(IniciarAplicativoEstoque.produto.getValorVenda()) + "0");
 							cadastroProduto.getCbUnidadeMedida()
-									.setSelectedItem(IniciarAplicativoNEEstoque.produto.getUnidadeMedida());
+									.setSelectedItem(IniciarAplicativoEstoque.produto.getUnidadeMedida());
 							cadastroProduto.getTfLimiteEstoque()
-									.setText(String.valueOf(IniciarAplicativoNEEstoque.produto.getEstoqueMinimo()));
+									.setText(String.valueOf(IniciarAplicativoEstoque.produto.getEstoqueMinimo()));
 							cadastroProduto.getTpObservacoes()
-									.setText(IniciarAplicativoNEEstoque.produto.getObservacoes());
+									.setText(IniciarAplicativoEstoque.produto.getObservacoes());
 
 							cadastroProduto.setNovo(false);
 
-							if (IniciarAplicativoNEEstoque.produto.getFoto() != null) {
+							if (IniciarAplicativoEstoque.produto.getFoto() != null) {
 
-								ImageIcon iconFrente = new ImageIcon(IniciarAplicativoNEEstoque.produto.getFoto());
+								ImageIcon iconFrente = new ImageIcon(IniciarAplicativoEstoque.produto.getFoto());
 
 								NovaImagem novaImagem = new NovaImagem();
 
@@ -387,7 +387,7 @@ public class ProdutoView extends JFrame {
 										new ImageIcon(iconFrente.getImage().getScaledInstance(novaImagem.getLargura(),
 												novaImagem.getAltura(), Image.SCALE_FAST)));
 
-								produtoTemp.setFoto(IniciarAplicativoNEEstoque.produto.getFoto());
+								produtoTemp.setFoto(IniciarAplicativoEstoque.produto.getFoto());
 
 							}
 
@@ -495,7 +495,7 @@ public class ProdutoView extends JFrame {
 							int id_produto = listaProduto.get(posicao).getId_produto();
 
 							ProdutoController produtoController = new ProdutoController();
-							IniciarAplicativoNEEstoque.produto = produtoController.buscarProduto(id_produto);
+							IniciarAplicativoEstoque.produto = produtoController.buscarProduto(id_produto);
 
 							UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
 							EntradaSaidaProdutoView entradaSaidaProdutoView = new EntradaSaidaProdutoView();
@@ -504,21 +504,21 @@ public class ProdutoView extends JFrame {
 							String situacao = "";
 
 							entradaSaidaProdutoView.getTfNomeDescricao()
-									.setText(IniciarAplicativoNEEstoque.produto.getNomeDescricao());
+									.setText(IniciarAplicativoEstoque.produto.getNomeDescricao());
 							entradaSaidaProdutoView.getTfEstoqueAtual()
-									.setText(String.valueOf(IniciarAplicativoNEEstoque.produto.getEstoqueAtual()) + " "
-											+ IniciarAplicativoNEEstoque.produto.getUnidadeMedida());
+									.setText(String.valueOf(IniciarAplicativoEstoque.produto.getEstoqueAtual()) + " "
+											+ IniciarAplicativoEstoque.produto.getUnidadeMedida());
 
-							if (IniciarAplicativoNEEstoque.produto
-									.getEstoqueAtual() <= IniciarAplicativoNEEstoque.produto.getEstoqueMinimo()) {
+							if (IniciarAplicativoEstoque.produto
+									.getEstoqueAtual() <= IniciarAplicativoEstoque.produto.getEstoqueMinimo()) {
 
 								situacao = "ESTOQUE BAIXO";
 								entradaSaidaProdutoView.getTfSituacaoAtual().setForeground(Color.RED);
 
-							} else if (IniciarAplicativoNEEstoque.produto
-									.getEstoqueAtual() > IniciarAplicativoNEEstoque.produto.getEstoqueMinimo()
-									&& IniciarAplicativoNEEstoque.produto.getEstoqueAtual() < 2
-											* IniciarAplicativoNEEstoque.produto.getEstoqueMinimo()) {
+							} else if (IniciarAplicativoEstoque.produto
+									.getEstoqueAtual() > IniciarAplicativoEstoque.produto.getEstoqueMinimo()
+									&& IniciarAplicativoEstoque.produto.getEstoqueAtual() < 2
+											* IniciarAplicativoEstoque.produto.getEstoqueMinimo()) {
 
 								situacao = "ATENÇÃO NO ESTOQUE";
 								entradaSaidaProdutoView.getTfSituacaoAtual().setForeground(Color.ORANGE);
@@ -532,11 +532,11 @@ public class ProdutoView extends JFrame {
 
 							entradaSaidaProdutoView.getTfSituacaoAtual().setText(situacao);
 							entradaSaidaProdutoView.getTpObservacao()
-									.setText(IniciarAplicativoNEEstoque.produto.getObservacoes());
+									.setText(IniciarAplicativoEstoque.produto.getObservacoes());
 
-							if (IniciarAplicativoNEEstoque.produto.getFoto() != null) {
+							if (IniciarAplicativoEstoque.produto.getFoto() != null) {
 
-								ImageIcon iconFrente = new ImageIcon(IniciarAplicativoNEEstoque.produto.getFoto());
+								ImageIcon iconFrente = new ImageIcon(IniciarAplicativoEstoque.produto.getFoto());
 
 								NovaImagem novaImagem = new NovaImagem();
 
@@ -1123,7 +1123,7 @@ public class ProdutoView extends JFrame {
 		btnNewButton.setBounds(818, 561, 105, 23);
 		contentPane.add(btnNewButton);
 
-		JLabel lblLogado = new JLabel("LOGADO: " + IniciarAplicativoNEEstoque.operador.getNome().toUpperCase());
+		JLabel lblLogado = new JLabel("LOGADO: " + IniciarAplicativoEstoque.operador.getNome().toUpperCase());
 		lblLogado.setBounds(30, 561, 431, 18);
 		contentPane.add(lblLogado);
 
@@ -1137,10 +1137,10 @@ public class ProdutoView extends JFrame {
 
 				if (resposta == JOptionPane.OK_OPTION) {
 
-					IniciarAplicativoNEEstoque.operador.setId_operador(0);
-					IniciarAplicativoNEEstoque.operador.setNome("");
-					IniciarAplicativoNEEstoque.operador.setLogin("");
-					IniciarAplicativoNEEstoque.operador.setSenha("");
+					IniciarAplicativoEstoque.operador.setId_operador(0);
+					IniciarAplicativoEstoque.operador.setNome("");
+					IniciarAplicativoEstoque.operador.setLogin("");
+					IniciarAplicativoEstoque.operador.setSenha("");
 
 					dispose();
 

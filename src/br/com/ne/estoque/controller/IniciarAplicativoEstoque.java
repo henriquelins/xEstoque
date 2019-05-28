@@ -10,7 +10,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import br.com.ne.estoque.view.TelaLogin;
 
-public class IniciarAplicativoNEEstoque {
+public class IniciarAplicativoEstoque {
 
 	public static Produto produto = new Produto();
 	public static Operador operador = new Operador();
@@ -25,7 +25,7 @@ public class IniciarAplicativoNEEstoque {
 		try {
 
 			setS(new ServerSocket(10002));
-			IniciarAplicativoNEEstoque iniaciarAplicativo = new IniciarAplicativoNEEstoque();
+			IniciarAplicativoEstoque iniaciarAplicativo = new IniciarAplicativoEstoque();
 			iniaciarAplicativo.Iniciar();
 
 		} catch (Exception e) {
@@ -62,7 +62,7 @@ public class IniciarAplicativoNEEstoque {
 
 	public static void setS(ServerSocket s) {
 
-		IniciarAplicativoNEEstoque.s = s;
+		IniciarAplicativoEstoque.s = s;
 
 	}
 

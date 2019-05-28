@@ -16,7 +16,7 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
-import br.com.ne.estoque.controller.IniciarAplicativoNEEstoque;
+import br.com.ne.estoque.controller.IniciarAplicativoEstoque;
 import br.com.ne.estoque.controller.Produto;
 import br.com.ne.estoque.controller.ProdutoController;
 import br.com.ne.estoque.controller.TransacaoController;
@@ -285,16 +285,16 @@ public class CadastroRapidoProdutoView extends JDialog {
 		produto.setUnidadeMedida(String.valueOf(cbUnidadeMedida.getSelectedItem()).toUpperCase());
 		produto.setEstoqueMinimo(Integer.valueOf(tfLimiteEstoque.getText()));
 
-		produto.setFoto(IniciarAplicativoNEEstoque.produto.getFoto());
+		produto.setFoto(IniciarAplicativoEstoque.produto.getFoto());
 
-		IniciarAplicativoNEEstoque.produto = produto;
+		IniciarAplicativoEstoque.produto = produto;
 
 		ProdutoController produtoController = new ProdutoController();
-		sucesso = produtoController.cadastrarProduto(IniciarAplicativoNEEstoque.produto);
+		sucesso = produtoController.cadastrarProduto(IniciarAplicativoEstoque.produto);
 
 		int id_produto = produtoController.buscarId_produto();
 
-		IniciarAplicativoNEEstoque.produto.setId_produto(id_produto);
+		IniciarAplicativoEstoque.produto.setId_produto(id_produto);
 
 		if (sucesso == true) {
 
